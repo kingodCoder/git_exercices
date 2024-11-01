@@ -53,13 +53,44 @@
   <!-- Squares -->
   <div class="modal fade" id="squareModal" tabindex="-1" aria-labelledby="squareModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
+      <div class="modal-content bg-info">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Adding a rect</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          ...
+          <div class="d-flex justify-content-center align-items-center">
+            <div class="p-1 col">
+              <label for="xpos" class="form-label">X pos. :</label>
+              <input type="text" id="xpos" class="form-control" placeholder="x">
+            </div>
+            <div class="p-1 col">
+              <label for="ypos" class="form-label">Y pos. :</label>
+              <input type="text" id="ypos" class="form-control" placeholder="y">
+            </div>
+            <div class="p-1 col">
+              <label for="sw" class="form-label">Square width :</label>
+              <input type="text" id="sw" class="form-control" placeholder="width">
+            </div>
+            <div class="p-1 col">
+              <label for="sh" class="form-label">Square height :</label>
+              <input type="text" id="sh" class="form-control" placeholder="height">
+            </div>
+          </div>
+          <div class="d-flex justify-content-center align-items-center">
+            <div class="col p-2">
+              <label for="fs" class="form-label">Bg Color fill :</label>
+              <input type="color" id="fs" />
+            </div>
+            <div class="col p-2">
+              <label for="ss" class="form-label">Bg Color stroke :</label>
+              <input type="color" id="ss" />
+            </div>
+            <div class="col p-2">
+              <label for="ssw" class="form-label">Square stroke width :</label>
+              <input type="text" id="ssw" class="form-control" placeholder="stroke width" />
+            </div>
+          </div>
         </div>
         <div class="modal-footer">
           <!-- <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button> -->

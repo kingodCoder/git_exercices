@@ -2,7 +2,7 @@
 
     const $ = el => document.querySelector(el);
 
-    let width,height,stage,layer,rect,square,circle,shape;
+    let width,height,stage,layer,rect,squareBtn,circle,shape;
 
     width = window.innerWidth;
     height = window.innerHeight;
@@ -26,7 +26,7 @@
 
     // Adding Shapes
     // Adding rect
-    square = $('#launch-square');
+    squareBtn = $('#launch-square');
     function square(x,y,width,height,fill,stroke='white',strokeWidth=0.001){
         return new Konva.Rect({
             x:x,
@@ -38,10 +38,19 @@
             strokeWidth:strokeWidth,
         });
     }
-    square.addEventListener('click', (e)=>{
-        p = e.currentTarget;
-        // layer.add(square());
-        alert(p);
+    squareBtn.addEventListener('click', (e)=>{
+        let group = new Konva.Group(),
+        sq,
+        x = Number($('#xpos').value),
+        y = Number($('#ypos').value),
+        w = Number($('#sw').value),
+        h = Number($('#sh').value),
+        f = $('#fs').value,
+        s = $('#ss').value,
+        sw = Number($('#ssw').value);
+        sq = square(x,y,w,h,f,s,sw);
+        group.add(sq);
+        layer.add(group);
     },false);
 
 
