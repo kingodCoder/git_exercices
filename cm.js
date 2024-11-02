@@ -21,15 +21,11 @@
         stroke: 'black',
         strokeWidth: 4,
     });
-    rect.draggable('true');
     layer.add(rect);
     stage.add(layer);
 
-    // Little database
-
-    // Adding Shapes
-
-    // Adding rect
+    // Meta datas
+    // Square
     squareBtn = $('#launch-square');
     function square(x,y,width,height,fill,stroke='white',strokeWidth=0.001){
         return new Konva.Rect({
@@ -42,6 +38,59 @@
             strokeWidth:strokeWidth,
         });
     }
+
+    // Circle
+    circle = $('#circle');
+    function circle(x,y,r,fill,stroke='white',strokeWidth=0.001){
+        return new Konva.Rect({
+            x:x,
+            y:y,
+            radius:r,
+            fill:fill,
+            stroke:stroke,
+            strokeWidth:strokeWidth,
+        });
+    }
+
+    // Creating a database
+    const request = window.indexedDB.open('card', 1);
+
+    request.onerror = (event) => {
+        console.error('Erreur lors de l\'ouverture de la base de données:', event.target.error);
+    };
+
+    request.onsuccess = (event) => {
+        const db = event.target.result;
+
+        // Créer un objet de transaction pour effectuer des opérations sur la base de données
+        const transaction = db.transaction(['tasks'], 'readwrite');
+        const objectStore = transaction.objectStore('tasks');
+
+        // Créer une fonction pour ajouter une tâche
+        function addTask(task) {
+            const request = objectStore.add(task);
+            request.onsuccess = (event) => {
+                console.log('Tâche ajoutée avec succès:', event.target.result);
+            };
+        }
+
+        // Créer une fonction pour récupérer toutes les tâches
+        function getAllTasks() {
+            const getAllRequest = objectStore.getAll();
+            getAllRequest.onsuccess = (event) => {
+                const tasks = event.target.result;
+                // Afficher les tâches dans l'interface utilisateur
+                console.log('Tâches récupérées:', tasks);
+            };
+        }
+
+        // Exemple d'utilisation :
+        addTask({ text: 'Faire les courses', completed: false });
+        getAllTasks();
+    };
+
+    // Adding Shapes
+    // Adding rect
     squareBtn.addEventListener('click', (e)=>{
         let group = new Konva.Group(),
         sq,
@@ -59,32 +108,21 @@
     },false);
 
     // Adding circle
-    circle = $('#circle');
-    function circle(x,y,radius,fill,stroke='white',strokeWidth=0.001){
-        return new Konva.Rect({
-            x:x,
-            y:y,
-            radius:radius,
-            fill:fill,
-            stroke:stroke,
-            strokeWidth:strokeWidth,
-        });
-    }
     circle.addEventListener('click', (e)=>{
         let group = new Konva.Group(),
         c,
         x = Number($('#xcpos').value),
         y = Number($('#ycpos').value),
         cr = Number($('#cr').value),
-        cf = $('#fc').value,
+        cf = $('#cf').value,
         cs = $('#cs').value,
         csw = Number($('#csw').value);
-        c = square(x,y,r,f,s,sw);
+        c = circle(x,y,cr,cf,cs,csw);
         c.draggable('true');
         group.add(c);
         layer.add(group);
     },false);
 
-    //Other shapes
+    // Other shapes
     shape = $('#shape');
 })();
