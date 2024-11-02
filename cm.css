@@ -1,32 +1,5 @@
-main{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 #card{
-    width: 400px;
-    height: 250px;
+    height: 300px;
     background-color: #f0f0f0;
-    border: 1px solid grey;
-}
-.tools{
-    border: 2px solid white;
-}
-.shape{
-    height: 30px;
-    width: 100px;
-    font-weight: bold;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-.shape:hover{
-    cursor: pointer;
-    border: 2px solid gold;
-    transform: scale(1.125);
-}
-.shape:active{
-    cursor: pointer;
-    transform: scale(.95);
-}
-header h1{
-    text-transform: uppercase;
+    /* border: 1px solid grey; */
 }

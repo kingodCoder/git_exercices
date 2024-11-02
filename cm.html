@@ -13,12 +13,12 @@
 <body class="pt-5">
     <div class="wrapper bg-dark">
         <header class="container-fluid bg-info p-2 text-center fixed-top">
-            <h1 class="text-light">Card Creation - CMA</h1>
+            <h1 class="text-light text-uppercase border bg-danger p-2">Card Creation - CMA</h1>
         </header>
-        <main class="container d-flex flex-column py-5">
-            <div id="card" width="400" height="250" class="m-4 rounded-3"></div>
-            <canvas id="card-maker" style="display: none;"></canvas>
-            <div class="tools bg-info col-md-6 col-12 p-3 rounded-3">
+        <main class="container py-5">
+          <div class="row py-5">
+            <div id="card" class="rounded-3 border border-secondary border-5 col-md-5 col-12"></div>
+            <div class="tools border border-5 bg-info offset-md-2 col-md-5 col-12 p-3 rounded-3">
                 <div class="shapes">
                     <h3 class="text-white">Add a shape</h3>
                     <div class="rows d-flex justify-content-between align-items-center">
@@ -40,8 +40,9 @@
                     <input type="file" id="image" class="form-control">  
                 </div>
             </div>
+          </div>
         </main>
-        <footer class="p-5 container-fluid bg-info text-center">
+        <footer class="p-4 container-fluid bg-info text-center fixed-bottom">
             <span class="lead fw-bold text-white">© Copyright CMA 2024</span>
         </footer>
     </div>
@@ -108,7 +109,38 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          ...
+          <div class="d-flex justify-content-center align-items-center">
+            <div class="p-1 col">
+              <label for="xpos" class="form-label">X pos. :</label>
+              <input type="text" id="xpos" class="form-control" placeholder="x">
+            </div>
+            <div class="p-1 col">
+              <label for="ypos" class="form-label">Y pos. :</label>
+              <input type="text" id="ypos" class="form-control" placeholder="y">
+            </div>
+            <div class="p-1 col">
+              <label for="sw" class="form-label">Square width :</label>
+              <input type="text" id="sw" class="form-control" placeholder="width">
+            </div>
+            <div class="p-1 col">
+              <label for="sh" class="form-label">Square height :</label>
+              <input type="text" id="sh" class="form-control" placeholder="height">
+            </div>
+          </div>
+          <div class="d-flex justify-content-center align-items-center">
+            <div class="col p-2">
+              <label for="fs" class="form-label">Bg Color fill :</label>
+              <input type="color" id="fs" />
+            </div>
+            <div class="col p-2">
+              <label for="ss" class="form-label">Bg Color stroke :</label>
+              <input type="color" id="ss" />
+            </div>
+            <div class="col p-2">
+              <label for="ssw" class="form-label">Square stroke width :</label>
+              <input type="text" id="ssw" class="form-control" placeholder="stroke width" />
+            </div>
+          </div>
         </div>
         <div class="modal-footer">
           <!-- <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button> -->

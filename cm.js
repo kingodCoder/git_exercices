@@ -39,8 +39,21 @@
         });
     }
 
+    // Circle
+    circle = $('#circle');
+    function circle(x,y,r,fill,stroke='white',strokeWidth=0.001){
+        return new Konva.Rect({
+            x:x,
+            y:y,
+            radius:r,
+            fill:fill,
+            stroke:stroke,
+            strokeWidth:strokeWidth,
+        });
+    }
+
     // Little Database
-    // Ouvrir une base de données nommée 'tasks'
+    // Creating a database
     const request = window.indexedDB.open('card', 1);
 
     request.onerror = (event) => {
@@ -79,7 +92,6 @@
 
     // Adding Shapes
     // Adding rect
-    
     squareBtn.addEventListener('click', (e)=>{
         let group = new Konva.Group(),
         sq,
@@ -91,11 +103,25 @@
         s = $('#ss').value,
         sw = Number($('#ssw').value);
         sq = square(x,y,w,h,f,s,sw);
+        sq.draggable('true');
         group.add(sq);
         layer.add(group);
     },false);
 
-
-    circle = $('#circle');
+    // Adding circle
+    circle.addEventListener('click', (e)=>{
+        let group = new Konva.Group(),
+        c,
+        x = Number($('#xcpos').value),
+        y = Number($('#ycpos').value),
+        cr = Number($('#cr').value),
+        cf = $('#cf').value,
+        cs = $('#cs').value,
+        csw = Number($('#csw').value);
+        c = circle(x,y,cr,cf,cs,csw);
+        c.draggable('true');
+        group.add(c);
+        layer.add(group);
+    },false);
     shape = $('#shape');
 })();
