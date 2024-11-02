@@ -2,31 +2,35 @@
 
     const $ = el => document.querySelector(el);
 
-    let width,height,stage,layer,rect,squareBtn,circle,shape;
+    let card,width,height,stage,layer,squareBtn,circleBtn,shapeBtn;
 
-    width = window.innerWidth;
-    height = window.innerHeight;
+    card = $('#card');
+    // height = card.offsetHeight;
+    height = card.clientHeight;
+    // width = card.offsetWidth;
+    width = card.clientWidth;
+
     stage = new Konva.Stage({
         container: 'card',
         width: 400,
         height: 250,
     });
     layer = new Konva.Layer();
-    rect = new  Konva.Rect({
-        x: 20,
-        y: 20,
-        width: 100,
-        height: 50,
-        fill: 'red',
-        stroke: 'black',
-        strokeWidth: 4,
-    });
-    layer.add(rect);
+    // rect = new  Konva.Rect({
+    //     x: 20,
+    //     y: 20,
+    //     width: 100,
+    //     height: 50,
+    //     fill: 'red',
+    //     stroke: 'black',
+    //     strokeWidth: 4,
+    // });
+    // layer.add(rect);
     stage.add(layer);
 
     // Meta datas
     // Square
-    squareBtn = $('#launch-square');
+    squareBtn = $('#square');
     function square(x,y,width,height,fill,stroke='white',strokeWidth=0.001){
         return new Konva.Rect({
             x:x,
@@ -40,9 +44,9 @@
     }
 
     // Circle
-    circle = $('#circle');
+    circleBtn = $('#circle');
     function circle(x,y,r,fill,stroke='white',strokeWidth=0.001){
-        return new Konva.Rect({
+        return new Konva.Circle({
             x:x,
             y:y,
             radius:r,
@@ -53,7 +57,7 @@
     }
 
     // Creating a database
-    const request = window.indexedDB.open('card', 1);
+    /*const request = window.indexedDB.open('card', 1);
 
     request.onerror = (event) => {
         console.error('Erreur lors de l\'ouverture de la base de données:', event.target.error);
@@ -87,7 +91,7 @@
         // Exemple d'utilisation :
         addTask({ text: 'Faire les courses', completed: false });
         getAllTasks();
-    };
+    };*/
 
     // Adding Shapes
     // Adding rect
@@ -108,7 +112,7 @@
     },false);
 
     // Adding circle
-    circle.addEventListener('click', (e)=>{
+    circleBtn.addEventListener('click', (e)=>{
         let group = new Konva.Group(),
         c,
         x = Number($('#xcpos').value),

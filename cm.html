@@ -15,16 +15,16 @@
         <header class="container-fluid bg-info p-2 text-center fixed-top">
             <h1 class="text-light text-uppercase border bg-danger p-2">Card Creation - CMA</h1>
         </header>
-        <main class="container py-5">
+        <main class="container-fluid py-5">
           <div class="row py-5">
             <div id="card" class="rounded-3 border border-secondary border-5 col-md-5 col-12"></div>
             <div class="tools border border-5 bg-info offset-md-2 col-md-5 col-12 p-3 rounded-3">
                 <div class="shapes">
                     <h3 class="text-white">Add a shape</h3>
                     <div class="rows d-flex justify-content-between align-items-center">
-                        <button class="btn text-light fw-bold btn-warning" id="square" data-bs-toggle="modal" data-bs-target="#squareModal">Square</button>
-                        <button class="btn text-light fw-bold btn-danger" id="circle" data-bs-toggle="modal" data-bs-target="#circleModal">Circle</button>
-                        <button class="btn text-light fw-bold btn-primary" id="shape" data-bs-toggle="modal" data-bs-target="#shapeModal">Other</button>
+                        <button class="btn text-light fw-bold btn-warning" data-bs-toggle="modal" data-bs-target="#squareModal">Square</button>
+                        <button class="btn text-light fw-bold btn-danger" data-bs-toggle="modal" data-bs-target="#circleModal">Circle</button>
+                        <button class="btn text-light fw-bold btn-primary" data-bs-toggle="modal" data-bs-target="#shapeModal">Other</button>
                     </div>
                 </div>
                 <div class="text" id="text">
@@ -54,7 +54,7 @@
   <!-- Squares -->
   <div class="modal fade" id="squareModal" tabindex="-1" aria-labelledby="squareModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content bg-info">
+      <div class="modal-content bg-warning text-light">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Adding a rect</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -95,7 +95,7 @@
         </div>
         <div class="modal-footer">
           <!-- <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button> -->
-          <button type="button" class="btn btn-primary" id="launch-square">Save changes</button>
+          <button type="button" class="btn btn-primary" id="square">Save changes</button>
         </div>
       </div>
     </div>
@@ -103,7 +103,7 @@
   <!-- Circles -->
   <div class="modal fade" id="circleModal" tabindex="-1" aria-labelledby="circleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
+      <div class="modal-content bg-danger text-light">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Addinng circle</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -111,7 +111,6 @@
         <div class="modal-body">
           <div class="d-flex justify-content-center align-items-center">
             <div class="p-1 col">
-<<<<<<< HEAD
               <label for="xcpos" class="form-label">X pos. :</label>
               <input type="text" id="xcpos" class="form-control" placeholder="x">
             </div>
@@ -122,27 +121,10 @@
             <div class="p-1 col">
               <label for="cr" class="form-label">Circle radius :</label>
               <input type="text" id="cr" class="form-control" placeholder="radius">
-=======
-              <label for="xpos" class="form-label">X pos. :</label>
-              <input type="text" id="xpos" class="form-control" placeholder="x">
-            </div>
-            <div class="p-1 col">
-              <label for="ypos" class="form-label">Y pos. :</label>
-              <input type="text" id="ypos" class="form-control" placeholder="y">
-            </div>
-            <div class="p-1 col">
-              <label for="sw" class="form-label">Square width :</label>
-              <input type="text" id="sw" class="form-control" placeholder="width">
-            </div>
-            <div class="p-1 col">
-              <label for="sh" class="form-label">Square height :</label>
-              <input type="text" id="sh" class="form-control" placeholder="height">
->>>>>>> 51c874fc3deaa7e6c18c2594d3b07dcd5a5d69ec
             </div>
           </div>
           <div class="d-flex justify-content-center align-items-center">
             <div class="col p-2">
-<<<<<<< HEAD
               <label for="cf" class="form-label">Bg Color fill :</label>
               <input type="color" id="cf" />
             </div>
@@ -151,20 +133,8 @@
               <input type="color" id="cs" />
             </div>
             <div class="col p-2">
-              <label for="csw" class="form-label">Square stroke width :</label>
+              <label for="csw" class="form-label">Circle stroke width :</label>
               <input type="text" id="csw" class="form-control" placeholder="stroke width" />
-=======
-              <label for="fs" class="form-label">Bg Color fill :</label>
-              <input type="color" id="fs" />
-            </div>
-            <div class="col p-2">
-              <label for="ss" class="form-label">Bg Color stroke :</label>
-              <input type="color" id="ss" />
-            </div>
-            <div class="col p-2">
-              <label for="ssw" class="form-label">Square stroke width :</label>
-              <input type="text" id="ssw" class="form-control" placeholder="stroke width" />
->>>>>>> 51c874fc3deaa7e6c18c2594d3b07dcd5a5d69ec
             </div>
           </div>
         </div>
@@ -178,7 +148,7 @@
   <!-- Others shapes -->
   <div class="modal fade" id="shapeModal" tabindex="-1" aria-labelledby="shapeModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <div class="modal-content">
+      <div class="modal-content bg-primary text-white">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -188,7 +158,7 @@
         </div>
         <div class="modal-footer">
           <!-- <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button> -->
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="button" class="btn btn-info">Save changes</button>
         </div>
       </div>
     </div>
