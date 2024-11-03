@@ -6,14 +6,16 @@
 
     card = $('#card');
     // height = card.offsetHeight;
-    height = card.clientHeight;
+    // height = card.clientHeight;
+    height = 250;
     // width = card.offsetWidth;
-    width = card.clientWidth;
+    // width = card.clientWidth;
+    width = 400;
 
     stage = new Konva.Stage({
         container: 'card',
-        width: 400,
-        height: 250,
+        width: width,
+        height: height,
     });
     layer = new Konva.Layer();
     // rect = new  Konva.Rect({
@@ -28,6 +30,9 @@
     // layer.add(rect);
     stage.add(layer);
 
+    let jsOn = stage.toJSON(),
+    ls = localStorage.setItem('js',jsOn);
+    
     // Meta datas
     // Square
     squareBtn = $('#square');
